@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4b302d1940.js" crossorigin="anonymous"></script>
+    <title>Home-Page</title>
+    <!-- link AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="./src/output.css">
+    <!-- link slik slider -->
+     <link rel="stylesheet" href="./slick.css">
+    <style>
+        .container {
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .bar1,
+        .bar2,
+        .bar3 {
+            width: 25px;
+            height: 4px;
+            background-color: #051533;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .change .bar1 {
+            transform: translate(0, 9px) rotate(-45deg);
+        }
+
+        .change .bar2 {
+            opacity: 0;
+        }
+
+        .change .bar3 {
+            transform: translate(0, -9px) rotate(45deg);
+        }
+        .prev-arrow{
+            position: absolute;
+            left: -10%;
+            top:40% ;
+            font-size: 50px;
+            cursor: pointer;
+            color: #cccccc;
+        }
+        .next-arrow{
+            position: absolute;
+            right: -10%;
+            top:40% ;
+            font-size: 50px;
+            cursor: pointer;
+            color: #cccccc;
+        }
+        .prev-btn,.next-btn{
+            position: absolute;
+            color: white;
+        }
+        @media screen and (min-width:1024px){
+            .prev-arrow{
+                left: -5%;
+            }
+            .next-arrow{
+                right:-5%;
+            }
+        }
+
+    </style>
+</head>
+<body class="flex flex-col justify-center items-center">
+     <!-- header start -->
+     <header class="max-w-[2000px] w-full bg-[#0d306f] py-4 lg:py-5">
+        <div class="w-full flex flex-row justify-between items-center sm:justify-around">
+            <div class="flex flex-row px-5 gap-5">
+                <div class="lg:flex gap-3">
+                    <i class="fa-solid fa-phone text-[#eff1f5] text-sm"></i>
+                    <span class="hidden text-[#eff1f5] text-sm lg:block">323-857-0923</span>
+                </div>
+                <div class="lg:flex gap-3">
+                    <i class="fa-solid fa-print text-[#eff1f5] text-sm"></i>
+                    <span class="hidden text-[#eff1f5] text-sm lg:block">323-857-0619</span>
+                </div>
+                <div class="lg:flex gap-3">
+                    <i class="fa-solid fa-location-dot text-[#eff1f5] text-sm"></i>
+                    <span class="hidden text-[#eff1f5] text-sm lg:block">512 N. La Brea Ave. Los Angeles, CA
+                        90036</span>
+                </div>
+            </div>
+
+            <div class="flex flex-row px-5 gap-5">
+                <i class="fa-brands fa-facebook-f text-[#eff1f5]"></i>
+                <i class="fa-brands fa-twitter text-[#eff1f5]"></i>
+                <i class="fa-brands fa-instagram text-[#eff1f5]"></i>
+                <i class="fa-brands fa-linkedin-in text-[#eff1f5]"></i>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+    <!-- nav start -->
+    <nav class="max-w-[2000px] w-full flex flex-col justify-center items-center">
+        <div class="w-full flex flex-col lg:flex-row lg:justify-around">
+            <div class="flex w-full justify-center items-center lg:w-[85%]">
+                <img class="w-[70%] sm:w-1/2 lg:[100%] 2xl:w-1/3" src="./image/logo.png" alt="" />
+            </div>
+            <div id="navbar"
+                class="w-[0] overflow-hidden h-[100vh] flex flex-col justify-start items-baseline position: fixed top-0 bg-[#376cc1] py-8 transition-all lg:position: lg:static lg:w-full lg:flex-row lg:h-auto lg:bg-white">
+                <a class="text-lg p-4 w-full border-b-2 text-white hover:text-[#479cce] lg:text-[#479cce] lg:border-none lg:w-auto lg:p-3 xl:mx-2 font-semibold"
+                    href="#">Home</a>
+                <a class="text-lg p-4 w-full border-b-2 text-white hover:text-[#479cce] lg:text-black lg:border-none lg:w-auto lg:p-3 xl:mx-2 font-semibold"
+                    href="#">About</a>
+                <a class="text-lg p-4 w-full border-b-2 text-white hover:text-[#479cce] lg:text-black lg:border-none lg:w-auto lg:p-3 xl:mx-2 font-semibold"
+                    href="#">Events</a>
+                <a class="text-lg p-4 w-full border-b-2 text-white hover:text-[#479cce] lg:text-black lg:border-none lg:w-auto lg:p-3 xl:mx-2 font-semibold"
+                    href="#">Prayar Services</a>
+                <a class="text-lg p-4 w-full border-b-2 text-white hover:text-[#479cce] lg:text-black lg:border-none lg:w-auto lg:p-3 xl:mx-2 font-semibold"
+                    href="#">Library</a>
+                <a class="text-lg p-4 w-full border-b-2 text-white hover:text-[#479cce] lg:text-black lg:border-none lg:w-auto lg:p-3 xl:mx-2 font-semibold"
+                    href="#">Articles</a>
+            </div>
+        </div>
+        <div class="position: absolute top-18 right-4 lg:hidden">
+            <div id="nav-btn" class="container" onclick="myFunction(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+    </nav>
+    <!-- nav end -->
+
+    <!-- main start -->
+    <main class="max-w-[2000px] w-full bg-[#fcfcfc]">
+        <!-- shedule start -->
+         <section style="background-image: url(./image/img-1.png);" class="w-full bg-cover bg-no-repeat">
+            <div class="flex flex-col justify-center items-center">
+                <div class="w-full flex flex-col justify-center items-center md:flex-row  md:w-[80%]">
+                    <div class="w-[80%] flex flex-col justify-start items-baseline my-10 md:px-6 lg:px-10 xl:px-14">
+                        <h1 class="text-3xl font-semibold font-Flareserif text-white mb-6 lg:text-4xl">Rebbitzen Esther Jungreis, of blessed memory</h1>
+                        <p class="text-white mb-6">Rebbitzen Jungreis, of blessed memory, dazzled and inspired the audience at jfile.</p>
+                        <button class="border-2 border-white w-36 h-12 rounded-3xl text-white hover:text-[#0e97cd] hover:bg-white hover:border-[#0e97cd]">
+                            Read More
+                        </button>
+                    </div>
+                    <div class="w-[80%] flex flex-col justify-center items-baseline bg-[#e0eaf8] py-5 px-8 xl:w-[60%]">
+                        <h1 class="text-xl font-semibold font-Flareserif mb-2 lg:text-3xl">Todays Schedule</h1>
+                        <div class="border-[#afb7c1] border-b mb-2 ">
+                            <h2 class="font-semibold text-[#363636] mb-1">Long Established</h2>
+                            <p class="text-[#081e46] font-semibold text-xs mb-2">june 20, 8.15pm</p>
+                            <p class="text-[#363636] font-semibold mb-3 lg:w-[60%]">It is a long established fact that  a reader will be distracted</p>
+                        </div>
+                        <div class="border-[#afb7c1] border-b mb-2">
+                            <h2  class="font-semibold text-[#363636] mb-1">Long Established</h2>
+                            <p class="text-[#081e46] font-semibold text-xs mb-2">june 20, 8.15pm</p>
+                            <p class="text-[#363636] font-semibold mb-3 lg:w-[60%]">It is a long established fact that  a reader will be distracted</p>
+                        </div>
+                        <div class="border-[#afb7c1] border-b mb-2">
+                            <h2 class="font-semibold text-[#363636] mb-1">Long Established</h2>
+                            <p class="text-[#081e46] font-semibold text-xs mb-2" >june 20, 8.15pm</p>
+                            <p class="text-[#363636] font-semibold mb-3 lg:w-[60%]">It is a long established fact that  a reader will be distracted</p>
+                        </div>
+                        <div class="mb-2">
+                            <h2 class="font-semibold text-[#363636] mb-1">Long Established</h2>
+                            <p class="text-[#081e46] font-semibold text-xs mb-2">june 20, 8.15pm</p>
+                            <p class="text-[#363636] font-semibold mb-3 lg:w-[60%]">It is a long established fact that  a reader will be distracted</p>
+                        </div>
+                        <button class="border-none w-32 h-10 rounded-3xl text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372]">View Calendar</button>
+                    </div>
+                </div>
+            </div>
+         </section>
+        <!-- shedule end -->
+         <!-- live tutoring start-->
+          <section class="w-full py-5 lg:py-8 border-[#dedede] border-b">
+            <div class="w-full flex flex-col justify-center items-center">
+                <div class="w-[80%] flex flex-col justify-center items-center md:flex-row md:w-full">
+                    <h1 class="text-xl font-semibold font-Flareserif mb-1 lg:text-3xl">Live Tutoring: </h1>
+                    <p class="text-center text-[#5a5a5a] mb-1 md:w-[50%] lg:w-auto md:mx-2">Contrary to popular belief, Lorem Ipsum is not simply random text. it has roots in a piece</p>
+                    <button class="border-none w-32 h-10 rounded-3xl text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372]">Learn More</button>
+                </div>
+            </div>
+          </section>
+         <!-- live tutoring end-->
+          <!-- photos start -->
+           <section class="w-full bg-white">
+            <div class="w-full flex flex-col justify-center items-center">
+                <div class="w-full flex flex-col justify-center items-center lg:flex-row pr-[10%]">
+                    <div class="w-full flex">
+                        <img class="w-[90%]" src="./image/img-3.png" alt="">
+                    </div>
+                    <div class="w-[80%] flex flex-col justify-start items-baseline py-6 lg:w-">
+                        <h1 class="text-3xl font-semibold font-Flareserif mb-6 lg:text-4xl">We Come to World for Serving & Sharing</h1>
+                        <p class="text-[#434343] mb-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem ipsum is that it has a more-or-less normal distribution of letters,as opposed to using 'Content here,content here',making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>
+                        <div class="bg-white shadow-lg px-6 py-4 border-l-4 border-[#0d306f] rounded-lg mb-6">
+                            <p class="text-[#363636]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text.</p>
+                        </div>
+                        <button class="border-none w-40 h-14 rounded-[30px] text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372]">Read More</button>
+                    </div>
+                </div>
+            </div>
+           </section>
+          <!-- photos end -->
+           <!-- child start -->
+            <section style="background-image: url(./image/img-4.png);" class="w-full bg-cover bg-no-repeat bg-center">
+                <div class="w-full flex flex-col justify-center items-center"> 
+                    <div class="w-full flex flex-col justify-center items-center lg:flex-row lg:w-[80%]">
+                        <div class="w-full"></div>
+                        <div class="w-[80%] py-8 flex flex-col justify-start items-baseline md:w-[70%] md:py-14 lg:py-16 lg:w-full">
+                            <h1 class="text-3xl font-semibold font-Flareserif text-white mb-6 lg:text-4xl">Lorem Ipsum is simply dummy</h1>
+                            <p class="text-white mb-6 w-[85%]">There are many variations of passages of Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt quia ut fuga maxime sit neque tempore nemo dignissimos inventore alias. Molestiae ullam, ipsam saepe quam deleniti iure dolorem praesentium commodi eos labore reiciendis ipsa atque rem modi eum cupiditate ad corporis rerum nemo. Labore aspernatur natus ea, fugiat of text.</p>
+                            <button class="border-2 border-white w-36 h-12 rounded-3xl text-white hover:text-[#0e97cd] hover:bg-white">Read More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+           <!-- child end -->
+            <!-- upcoming events start -->
+             <section class="w-full bg-[#f1f1f1]">
+                <div class="w-full flex flex-col justify-center items-center py-10 lg:py-24">
+                    <h1 class="text-3xl font-semibold font-Flareserif mb-6 lg:text-4xl lg:mb-12">Upcoming Events</h1>
+                    <div class="w-[90%] flex flex-col justify-center items-center bg-white rounded-t-lg shadow-2xl mb-10 md:w-[80%]">
+                        <div class="w-full flex flex-row justify-center items-center py-6">
+                            <div class="w-full flex flex-col justify-center items-center lg:flex-row lg:gap-32 lg:ml-[-10%]">
+                               <h1 class="font-Flareserif font-semibold text-[#595959] text-lg mb-3 lg:mb-0">Date</h1> 
+                               <h1 class="font-Flareserif font-semibold text-[#595959] text-lg">Time</h1> 
+                            </div>
+                            <div class="w-full flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:pr-20">
+                                <h1 class="font-Flareserif font-semibold text-[#595959] text-lg mb-3 lg:mb-0">Event Theme</h1>
+                                <h1 class="font-Flareserif font-semibold text-[#595959] text-lg">Book</h1>
+                            </div>
+                        </div>
+
+                        <div id="box-1" class="w-full flex flex-row justify-center items-center py-4 bg-[#dbecf7]">
+                            <div  class="w-full flex flex-col justify-center items-center lg:flex-row lg:gap-36 lg:ml-[-9%] ">
+                                <p id="date-1" class="mb-3 text-[#555555] lg:mb-0">12 May 2021</p>
+                                <p id="time-1" class="text-[#555555] lg:ml-[-10%]">07:30 PM</p>  
+                            </div>         
+                            <div class="w-full flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:pr-10">
+                                <h1 id="heading-1" class="text-center mb-3 text-[#292929] font-bold lg:mb-0 lg:text-start lg:ml-[-5%]">Learn How To Learn Chumash</h1>
+                                <button id="btn-1" class="border-none w-28 h-12 rounded-[30px] text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372]">Read More</button>
+                            </div>
+                        </div>
+                        <div id="para-1" class="px-10 text-white h-0 overflow-auto md:overflow-hidden transition-all bg-gradient-to-r from-[#0d3372] to-[#066fb4] ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio eum est, illum placeat quos odio ducimus qui voluptatibus voluptas. Fugit animi, nulla accusamus distinctio architecto ex sequi temporibus optio natus quae ipsa asperiores repellendus inventore. Distinctio consequuntur assumenda velit tempore illo temporibus quo alias laudantium libero suscipit odit minima illum, aliquid rem sunt. Ab magnam, accusamus, molestias velit voluptates ad doloribus sed ratione ducimus tempora vitae voluptatibus aut? Delectus quibusdam aperiam blanditiis? Aliquam, vitae quasi pariatur laborum, cupiditate maiores dolorum mollitia commodi optio in illum! Quo, adipisci impedit! Laboriosam tempore dolore quasi iste sit unde hic culpa eligendi ad? Accusamus?</div>
+
+
+                        <div id="box-2" class="w-full flex flex-row justify-center items-center py-4 bg-white">
+                            <div  class="w-full flex flex-col justify-center items-center lg:flex-row lg:gap-36 lg:ml-[-9%] ">
+                                <p id="date-2" class="mb-3 text-[#555555] lg:mb-0">16 May 2021</p>
+                                <p id="time-2" class="text-[#555555] lg:ml-[-10%]">10:10 AM</p>  
+                            </div>
+                            <div class="w-full flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:pr-10">
+                                <h1 id="heading-2" class="text-center mb-3 text-[#292929] font-bold lg:mb-0 lg:text-start lg:ml-[-5%]">Crash Course in Reading Hebrew</h1>
+                                <button id="btn-2" class="border-none w-28 h-12 rounded-[30px] text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372]">Read More</button>
+                            </div>
+                        </div>
+                        <div id="para-2" class="px-10 text-white h-0 overflow-auto md:overflow-hidden transition-all bg-gradient-to-r from-[#0d3372] to-[#066fb4]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio eum est, illum placeat quos odio ducimus qui voluptatibus voluptas. Fugit animi, nulla accusamus distinctio architecto ex sequi temporibus optio natus quae ipsa asperiores repellendus inventore. Distinctio consequuntur assumenda velit tempore illo temporibus quo alias laudantium libero suscipit odit minima illum, aliquid rem sunt. Ab magnam, accusamus, molestias velit voluptates ad doloribus sed ratione ducimus tempora vitae voluptatibus aut? Delectus quibusdam aperiam blanditiis? Aliquam, vitae quasi pariatur laborum, cupiditate maiores dolorum mollitia commodi optio in illum! Quo, adipisci impedit! Laboriosam tempore dolore quasi iste sit unde hic culpa eligendi ad? Accusamus?</div>
+
+
+
+                        <div id="box-3" class="w-full flex flex-row justify-center items-center py-4 bg-[#dbecf7]">
+                            <div  class="w-full flex flex-col justify-center items-center lg:flex-row lg:gap-36 lg:ml-[-9%] ">
+                                <p id="date-3" class="mb-3 text-[#555555] lg:mb-0">16 May 2021</p>
+                                <p id="time-3" class="text-[#555555] lg:ml-[-10%]">11:30 AM</p>  
+                            </div>
+                            <div class="w-full flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:pr-10">
+                                <h1 id="heading-3" class="text-center mb-3 text-[#292929] font-bold lg:mb-0 lg:text-start lg:ml-[-5%]">Simply Parsha</h1>
+                                <button id="btn-3" class="border-none w-28 h-12 rounded-[30px] text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372]">Read More</button>
+                            </div>
+                        </div>
+                        <div id="para-3" class="px-10 text-white h-0 overflow-auto md:overflow-hidden transition-all bg-gradient-to-r from-[#0d3372] to-[#066fb4]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio eum est, illum placeat quos odio ducimus qui voluptatibus voluptas. Fugit animi, nulla accusamus distinctio architecto ex sequi temporibus optio natus quae ipsa asperiores repellendus inventore. Distinctio consequuntur assumenda velit tempore illo temporibus quo alias laudantium libero suscipit odit minima illum, aliquid rem sunt. Ab magnam, accusamus, molestias velit voluptates ad doloribus sed ratione ducimus tempora vitae voluptatibus aut? Delectus quibusdam aperiam blanditiis? Aliquam, vitae quasi pariatur laborum, cupiditate maiores dolorum mollitia commodi optio in illum! Quo, adipisci impedit! Laboriosam tempore dolore quasi iste sit unde hic culpa eligendi ad? Accusamus?</div>
+                       
+                        <div id="box-4" class="w-full flex flex-row justify-center items-center py-4 bg-white">
+                            <div  class="w-full flex flex-col justify-center items-center lg:flex-row lg:gap-36 lg:ml-[-9%] ">
+                                <p id="date-4" class="mb-3 text-[#555555] lg:mb-0">17 May 2021</p>
+                                <p id="time-4" class="text-[#555555] lg:ml-[-10%]">08:00 PM</p>  
+                            </div>
+                            <div class="w-full flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:pr-10">
+                                <h1 id="heading-4" class="text-center mb-3 text-[#292929] font-bold lg:mb-0 lg:text-start lg:ml-[-5%]">Lore of the Talmud</h1>
+                                <button id="btn-4" class="border-none w-28 h-12 rounded-[30px] text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372]">Read More</button>
+                            </div>
+                        </div>
+                        <div id="para-4" class="px-10 text-white h-0 overflow-auto md:overflow-hidden transition-all bg-gradient-to-r from-[#0d3372] to-[#066fb4]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio eum est, illum placeat quos odio ducimus qui voluptatibus voluptas. Fugit animi, nulla accusamus distinctio architecto ex sequi temporibus optio natus quae ipsa asperiores repellendus inventore. Distinctio consequuntur assumenda velit tempore illo temporibus quo alias laudantium libero suscipit odit minima illum, aliquid rem sunt. Ab magnam, accusamus, molestias velit voluptates ad doloribus sed ratione ducimus tempora vitae voluptatibus aut? Delectus quibusdam aperiam blanditiis? Aliquam, vitae quasi pariatur laborum, cupiditate maiores dolorum mollitia commodi optio in illum! Quo, adipisci impedit! Laboriosam tempore dolore quasi iste sit unde hic culpa eligendi ad? Accusamus?</div>
+
+
+
+                        <div id="box-5" class="w-full flex flex-row justify-center items-center py-4 bg-[#dbecf7]">
+                            <div  class="w-full flex flex-col justify-center items-center lg:flex-row lg:gap-36 lg:ml-[-9%] ">
+                                <p id="date-5" class="mb-3 text-[#555555] lg:mb-0">19 May 2021</p>
+                                <p id="time-5" class="text-[#555555] lg:ml-[-10%]">07:30 PM</p>  
+                            </div>
+                            <div class="w-full flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:pr-10">
+                                <h1 id="heading-5" class="text-center mb-3 text-[#292929] font-bold lg:mb-0 lg:text-start lg:ml-[-5%]">Lore of the Talmud</h1>
+                                <button id="btn-5" class="border-none w-28 h-12 rounded-[30px] text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372]">Read More</button>
+                            </div>
+                        </div>
+                        <div id="para-5" class="px-10 text-white h-0 overflow-auto md:overflow-hidden transition-all bg-gradient-to-r from-[#0d3372] to-[#066fb4]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio eum est, illum placeat quos odio ducimus qui voluptatibus voluptas. Fugit animi, nulla accusamus distinctio architecto ex sequi temporibus optio natus quae ipsa asperiores repellendus inventore. Distinctio consequuntur assumenda velit tempore illo temporibus quo alias laudantium libero suscipit odit minima illum, aliquid rem sunt. Ab magnam, accusamus, molestias velit voluptates ad doloribus sed ratione ducimus tempora vitae voluptatibus aut? Delectus quibusdam aperiam blanditiis? Aliquam, vitae quasi pariatur laborum, cupiditate maiores dolorum mollitia commodi optio in illum! Quo, adipisci impedit! Laboriosam tempore dolore quasi iste sit unde hic culpa eligendi ad? Accusamus?</div>
+
+
+                    </div>
+                    <button class="border-none w-36 h-12 rounded-[30px] text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372] lg:w-48 lg:h-14">View Calendar</button>
+                </div>
+             </section>
+            <!-- upcoming events end -->
+
+            <!-- Donate start -->
+             <section style="background-image: url(./image/img-5.png);" class="w-full py-12 bg-cover bg-center bg-no-repeat md:py-16 lg:py-20">
+                <div class="w-full flex flex-col justify-center items-center">
+                    <div class="w-[80%] flex flex-col justify-center items-center lg:w-[70%]">
+                        <h1 class="text-center text-3xl font-semibold font-Flareserif text-white mb-8 lg:text-4xl">Do you Want to Donate?</h1>
+                        <p class="text-center text-white mb-8">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some from, by injected humour, or randomised
+                            words which don't look even slightly believable.If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+                            <button class=" w-36 h-12 rounded-[30px] border-2-white border-2 text-white  lg:w-48 lg:h-14 hover:text-[#15447e] hover:bg-white hover:border-none">Donate Now</button></a>
+                    </div>
+                </div>
+             </section>
+            <!-- Donate end -->
+
+            <!-- Testimonials start -->
+             <section class="bg-white w-full py-12 lg:py-20">
+                <div class="w-full flex flex-col justify-center items-center">
+                    <h1 class="text-3xl font-semibold font-Flareserif mb-6 lg:text-4xl lg:mb-12">Testimonials</h1>
+                    <div id="slider-1" class="w-[80%] flex flex-col justify-center items-center">
+                        <div>
+                            <div style="background-image: url(./image/img-6.png);" class="w-full p-10 pt-20 bg-cover bg-no-repeat rounded-3xl lg:p-16 md:pt-32 lg:pt-40" >
+                                <p class="text-[#1c1c1c] mb-5">
+                                    Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras . Ex totam nam dolor distinctio rerum, quia cum dicta alias, quas ipsam officia amet error eligendi assumenda voluptatem fugit recusandae  voluptatem fugit recusandae impedit porro tenetur unde sint! Blanditiis numquam explicabo labore praesentium possimus impedit dolor vitae totam a ullam.
+                                </p>
+                                    
+                                <p class="text-[#1c1c1c] mb-5">    
+                                    Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras  Amet accusamus beatae totam eveniet iure tempore ab dolorem. Adipisci ut distinctio at pariatur corrupti quos placeat autem iste perspiciatis quis? Nam dignissimos consequuntur suscipit cum nesciunt inventore iusto omnis quibusdam assumenda eum quaerat nostrum labore ducimus odit, atque maxime.
+                                </p>
+                                <h1 class="text-[#1c1c1c] text-xl font-bold mb-1">John Smiths</h1>
+                                <p class="text-sm text-[#1c1c1c] mb-4">CEO - xyz Company</p>
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <div style="background-image: url(./image/img-6.png);" class="w-full p-10 pt-20 bg-cover bg-no-repeat rounded-3xl lg:p-16 md:pt-32 lg:pt-40 " >
+                                <p class="text-[#1c1c1c] mb-5">
+                                    Blanditiis numquam explicabo labore Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras . Ex totam nam dolor distinctio rerum, quia cum dicta alias, quas ipsam officia amet error eligendi assumenda voluptatem fugit recusandae  voluptatem fugit recusandae impedit porro tenetur unde sint! Blanditiis numquam explicabo labore praesentium possimus.
+                                </p>
+                                    
+                                <p class="text-[#1c1c1c] mb-5">    
+                                    Nam dignissimos consequuntur suscipit Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras  Amet accusamus beatae totam eveniet iure tempore ab dolorem. Adipisci ut distinctio at pariatur corrupti quos placeat autem iste perspiciatis quis? Nam dignissimos consequuntur suscipit cum nesciunt inventore iusto omnis quibusdam assumenda eum.
+                                </p>
+                                <h1 class="text-[#1c1c1c] text-xl font-bold mb-1">Williom Sons</h1>
+                                <p class="text-sm text-[#1c1c1c] mb-4">CEO - xyz Company</p>
+                            </div>
+                        </div>
+
+
+                       <div>
+                        <div style="background-image: url(./image/img-6.png);" class="w-full p-10 pt-20 bg-cover bg-no-repeat rounded-3xl lg:p-16 md:pt-32 lg:pt-40" >
+                            <p class="text-[#1c1c1c] mb-5">
+                                Quas ipsam officia amet error eligendi Blanditiis numquam explicabo labore Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras . Ex totam nam dolor distinctio rerum, quia cum dicta alias,  assumenda voluptatem fugit recusandae  voluptatem fugit recusandae impedit porro tenetur unde sint! Blanditiis numquam explicabo labore praesentium totam a ullam.
+                            </p>
+                                
+                            <p class="text-[#1c1c1c] mb-5">    
+                                Pariatur corrupti quos placeat Nam dignissimos consequuntur suscipit Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras  Amet accusamus beatae totam eveniet iure tempore ab dolorem. Adipisci ut distinctio at  autem iste perspiciatis quis? Nam dignissimos consequuntur suscipit cum nesciunt inventore iusto omnis quibusdam assumenda eum quaerat.
+                            </p>
+                            <h1 class="text-[#1c1c1c] text-xl font-bold mb-1">Tom Robbert</h1>
+                            <p class="text-sm text-[#1c1c1c] mb-4">CEO - xyz Company</p>
+                        </div>
+                       </div>
+                    </div>
+                </div>
+             </section>
+            <!-- Testimonials end -->
+             <!-- Recent Updates start -->
+              <section class="w-full bg-white py-12 lg:py-20">
+                <div class="w-full flex flex-col justify-center items-center">
+                    <div class="w-[80%] flex flex-col justify-center items-center lg:flex-row">
+                        <div class="w-full flex flex-col justify-start items-baseline py-5">
+                            <h1 class="text-3xl font-semibold font-Flareserif mb-6 lg:text-4xl lg:mb-8">Recent Posts</h1>
+                            <p class="text-[#363636] mb-6 lg:mb-8">It is a long established fact that a reader will be distracted by the readable content.</p>
+                            <button class="border-none w-36 h-12 rounded-[30px] text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372] lg:w-48 lg:h-14">Read More</button>
+                        </div>
+                        <div id="slider-2" class="w-[90%] flex flex-col justify-start items-baseline ml-[5%] lg:w-[70%] shadow-2xl bg-white">
+                            <div>
+                                <div class="w-[95%] flex flex-col justify-start items-baseline rounded-xl shadow-2xl">
+                                    <div class="flex w-full ">
+                                        <img class="rounded-t-xl w-full" src="./image/img-7.png" alt="">
+                                    </div>
+                                   <div class="p-5 lg:p-7">
+                                    <h1 class="text-xl font-Flareserif font-bold text-[#1e1e1e] mb-3 lg:w-[70%]">If you are going to use  a passage of Lorem</h1>
+                                    <p class="text-[#363636]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus asperiores distinctio aut vero placeat? Blanditiis ipsam ipsum ea voluptatibus sed, maxime facilis veniam atque incidunt corrupti! At quis nisi necessitatibus.</p>
+                                   </div>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <div class="w-[95%] flex flex-col justify-start items-baseline rounded-xl shadow-2xl">
+                                    <div class="flex w-full ">
+                                        <img class="rounded-t-xl w-full" src="./image/img-8.png" alt="">
+                                    </div>
+                                   <div class="p-5 lg:p-7">
+                                    <h1 class="text-xl font-Flareserif font-bold text-[#1e1e1e] mb-3 lg:w-[70%]">If you are going to use  a passage of Lorem</h1>
+                                    <p class="text-[#363636]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus asperiores distinctio aut vero placeat? Blanditiis ipsam ipsum ea voluptatibus sed, maxime facilis veniam atque incidunt corrupti! At quis nisi necessitatibus.</p>
+                                   </div>
+                                </div>
+                            </div>
+
+
+                           <div>
+                                <div class="w-[95%] flex flex-col justify-start items-baseline rounded-xl shadow-2xl">
+                                    <div class="flex w-full">
+                                        <img class="rounded-t-xl w-full" src="./image/img-9.png" alt="">
+                                    </div>
+                                <div class="p-5 lg:p-7">
+                                    <h1 class="text-xl font-Flareserif font-bold text-[#1e1e1e] mb-3 lg:w-[70%]">If you are going to use  a passage of Lorem</h1>
+                                    <p class="text-[#363636]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus asperiores distinctio aut vero placeat? Blanditiis ipsam ipsum ea voluptatibus sed, maxime facilis veniam atque incidunt corrupti! At quis nisi necessitatibus.</p>
+                                </div>
+                                </div>
+                           </div>
+                            
+                        </div>
+                    </div>
+                </div>
+              </section>
+             <!-- Recent Updates end -->
+        <!-- signup start -->
+         <section style="background-image: url(./image/img-2.png);" class="w-full bg-cover bg-no-repeat py-16 sm:py-20">
+            <div class="w-full flex flex-col justify-center items-center sm:flex-row sm:w-[90%] lg:w-[85%]">
+                <div class="w-0 sm:w-full"></div>
+                <div class="w-full flex flex-col justify-center items-center xl:w-[70%]">
+                    <div class="bg-white py-8 px-6 w-[70%] rounded-xl sm:w-full sm:pb-12 xl:px-10">
+                        <h1 class="text-[#1e1e1e] font-extrabold text-2xl mb-5 sm:text-3xl lg:text-4xl font-Flareserif text-center sm:mb-6">Sign Up For JLE Updates and Newsletters!</h1>
+                        <div class="flex">
+                            <input class="bg-white shadow-xl w-[70%] h-10 pl-6 rounded-3xl text-[#8e8e8e]" type="email" placeholder="Email">
+                            <button class="bg-gradient-to-r from-[#0d3372] to-[#066fb4] text-white text-sm w-20 h-10 cursor-pointer rounded-3xl hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372] xl:w-32">Sign Up</button>
+                        </div>
+                </div>
+                </div>
+            </div>
+         </section>
+        <!-- signup end -->
+    </main>
+    <!-- main end -->
+     
+    <!-- footer start -->
+     <footer class="max-w-[2000px]">
+        <!-- fooeter 1 start -->
+         <section class="w-full py-16 flex flex-col justify-center items-center">
+            <div class="w-[90%] flex flex-col justify-center items-center lg:flex-row lg:justify-normal lg:items-start xl:w-[70%]">
+                <div class="w-full flex mb-4 flex-col justify-center items-center lg:justify-start lg:items-baseline">
+                    <div class="flex mb-4"><img src="./image/logo.png" alt=""></div>
+                    <p class="text-center text-[#363636] text-base lg:text-start px-8">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos nemo enim sed, ipsum dolorem neque, porro fuga est repellat suscipit doloribus. Laudantium soluta adipisci, officiis dignissimos doloremque at optio doloribus eum nemo! Ipsa libero sit iste quam saepe adipisci enim.
+                    </p>
+                </div>
+                <div class="w-1/2 flex flex-col justify-start items-baseline mb-5 lg:w-full lg:pl-[10%]">
+                    <h1 class="text-2xl font-Flareserif font-bold mb-4"><span class="font-bold text-[#0d306f]">|</span> Useful Links</h1>
+                    <div class="flex flex-col justify-start items-baseline sm:flex-row sm:gap-8 lg:gap-11">
+                        <div class="flex flex-col justify-start items-baseline">
+                            <a class="text-lg mb-2 text-[#363636] hover:text-[#0d306f]" href="#">Home</a>
+                            <a class="text-lg mb-2 text-[#363636] hover:text-[#0d306f]" href="#">About</a>
+                            <a class="text-lg mb-2 text-[#363636] hover:text-[#0d306f]" href="#">Events</a>
+                            <a class="text-lg mb-2 text-[#363636] hover:text-[#0d306f]" href="#">Prayer Services</a>
+                            <a class="text-lg mb-2 text-[#363636] hover:text-[#0d306f]" href="#">Library</a>
+                        </div>
+                        <div class="flex flex-col justify-start items-baseline">
+                            <a class="text-lg mb-2 text-[#363636] hover:text-[#0d306f]" href="#">Articles</a>
+                            <a class="text-lg mb-2 text-[#363636] hover:text-[#0d306f]" href="#">Donate</a>
+                            <a class="text-lg mb-2 text-[#363636] hover:text-[#0d306f]" href="#">Contact</a>
+                            <a class="text-lg mb-2 text-[#363636] hover:text-[#0d306f]" href="#">Raffle</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/2 flex flex-col justify-start items-baseline lg:w-full">
+                    <h1 class="text-2xl font-Flareserif font-bold mb-4"><span class="font-bold text-[#0d306f]">|</span> Reach US</h1>
+                    <a class="mb-4 flex justify-center items-center hover:text-[#0d306f]" href="#">
+                        <i class="fa-solid fa-location-dot w-10 h-10 leading-10 text-center text-lg text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] rounded-[50%] mr-2 hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372]"></i>
+                        <div class="flex flex-col float-right">
+                            <p> 512 N. La Brea Ave.</p>
+                            <p>Los Angeles, CA 90036</p>
+                        </div>
+                    </a>
+                    <a class="mb-4 flex justify-center items-center hover:text-[#0d306f]" href="#">
+                        <i class="fa-solid fa-phone w-10 h-10 leading-10 text-center text-lg text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] rounded-[50%] mr-2 hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372]"></i>
+                        <p>323-857-0923</p>
+                    </a>
+                    <a class="mb-4 flex justify-center items-center hover:text-[#0d306f]" href="#">
+                        <h1 class="w-10 h-10 leading-10 text-center text-lg text-white bg-gradient-to-r from-[#0d3372] to-[#066fb4] rounded-[50%] mr-2 hover:bg-gradient-to-r hover:from-[#066fb4] hover:to-[#0d3372]">@</h1>
+                        <p>info@jlela.com</p>
+                    </a>
+                </div>
+            </div>
+         </section>
+        <!-- fooeter 1 end -->
+        <!-- fooeter 2 start -->
+         <section class="w-full py-4 lg:py-5 border-t-2">
+            <div class="w-full flex flex-row justify-between items-center sm:justify-around">
+                <div>
+                    <h1 class="text-[#363636]">© 2021 The Jewish Learning Exchange. All rights reserved.</h1>
+                </div>
+    
+                <div class="flex flex-row px-5 gap-5">
+                    <i class="fa-brands fa-facebook-f text-[#0d306f]"></i>
+                    <i class="fa-brands fa-twitter text-[#0d306f]"></i>
+                    <i class="fa-brands fa-instagram text-[#0d306f]"></i>
+                    <i class="fa-brands fa-linkedin-in text-[#0d306f]"></i>
+                </div>
+            </div>
+         </section>
+        <!-- fooeter 2 end -->
+        
+     </footer>
+    <!-- footer end -->
+
+    <!-- link AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+        offset: 300,
+        duration:700,
+    });
+    </script>
+
+      <!-- link slik slider -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.5.2/jquery-migrate.min.js" integrity="sha512-BzvgYEoHXuphX+g7B/laemJGYFdrq4fTKEo+B3PurSxstMZtwu28FHkPKXu6dSBCzbUWqz/rMv755nUwhjQypw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="./slick.min.js"></script>
+      <script>
+          $(document).ready(function(){
+              $('#slider-1').slick({
+                  infinite: true,
+                  speed: 500,
+             slidesToShow: 1,
+             adaptiveHeight: true,
+             prevArrow: ' <span class="prev-arrow"><i class="fa-solid fa-angle-left"></i></span>',
+             nextArrow: ' <span class="next-arrow"><i class="fa-solid fa-angle-right"></i></span>',
+            });
+        });
+
+
+        $(document).ready(function(){
+                $('#slider-2').slick({
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed:2000,
+                prevArrow: ' <span class="prev-btn"><i class="fa-solid fa-angle-left"></i></span>',
+                nextArrow: ' <span class="next-btn"><i class="fa-solid fa-angle-right"></i></span>',
+                responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    },
+  ]
+                });
+        });
+        </script>
+        <script src="./src/script.js"></script>
+
+</body>
+</html>
